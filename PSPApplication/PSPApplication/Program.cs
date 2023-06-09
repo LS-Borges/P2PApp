@@ -38,9 +38,8 @@ namespace P2PApplication
                 var stream = client.GetStream();
                 byte[] fileData = new byte[1024];
 
-                stream.Read(fileData);
-
                 int receivedBytes = stream.Read(fileData, 0, fileData.Length);
+
                 using (var fs = File.Create("receivedFile.txt"))
                 {
                     fs.Write(fileData, 0, receivedBytes);
